@@ -1,0 +1,26 @@
+{% extends 'gallery.html' %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}
+<title>Галерея</title>
+{% endblock %}
+
+{% block text %}
+    {% for album in my_album %}
+        <div class="album">
+
+            <a href='{{ album.slug }}'>
+                <img src="{% static 'images/{{ album.img }}'%}">
+            {% thumbnail album.img "200x200" crop='center' as im %}
+                {{ im.url}}
+            <img src="/static/images/{{im.url}}" alt="{{ im.title }}" width="{{ im.width }}" height="{{ im.height }}">
+            {% endthumbnail %}
+            </a>
+
+            <p>{{ album.title }}</p>
+
+        </div>
+    {% endfor %}
+{% endblock %}

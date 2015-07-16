@@ -1,0 +1,22 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <script src="{% static 'js/jquery.min.js'%}" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" href="{% static 'css/prettyGallery.css'%}" type="text/css" media="screen" charset="utf-8" />
+    <script src="{% static 'js/jquery.prettyGallery.js'%}" type="text/javascript" charset="utf-8"></script>
+    <meta charset="UTF-8">
+    {% block title %}
+    {% endblock %}
+</head>
+<body>
+    {% block text %}
+
+    {% endblock %}
+
+    {% block script %}
+    {% endblock %}
+
+</body>
+</html>

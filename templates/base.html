@@ -1,0 +1,96 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.ico'%}">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'assets/css/bootstrap.css'%}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/css/style.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/css/font-awesome.min.css'%}" rel="stylesheet">
+    <link href="{% static 'assets/js/fancybox/jquery.fancybox.css'%}" rel="stylesheet" />
+    <script src="{% static 'js/jquery-1.11.3.js'%}" type="text/javascript" charset="utf-8"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{% static 'assets/js/html5shiv.js'%}"></script>
+      <script src="{% static 'assets/js/respond.min.js'%}"></script>
+    <![endif]-->
+    {% block head %}{% endblock %}
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+
+  {% block menu %}
+    <!-- Menu -->
+	<nav class="menu" id="theMenu">
+		<div class="menu-wrap">
+			<h1 class="logo"><a href="/#home">Щебетюк Елена Юрьевная</a></h1>
+			<i class="fa fa-times menu-close"></i>
+			<a href="#home" class="smoothScroll">Главная</a>
+			<a href="#about" class="smoothScroll">Обо мне</a>
+			<a href="#portfolio" class="smoothScroll">Портфолио</a>
+			<a href="#services" class="smoothScroll">Направления работ</a>
+			<a href="#contact" class="smoothScroll">Контакты</a>
+			<a href="https://www.facebook.com/profile.php?id=100004596781881&fref=ts"><i class="fa fa-facebook"></i></a>
+			<a href="http://vk.com/isaechka2008"><i class="fa fa-vk"></i></a>
+			<a href="http://rafael.far.ru"><i class="fa fa-dribbble"></i></a>
+			<a href="#"><i class="fa fa-envelope"></i></a>
+		</div>
+		<!-- Menu button -->
+		<div id="menuToggle"><i class="fa fa-bars"></i></div>
+	</nav>
+  {% endblock %}
+
+  {% block home %}
+  {% endblock %}
+
+  {% block about %}
+  {% endblock %}
+
+  {% block gallery%}
+  {% endblock %}
+
+  {% block photo%}
+  {% endblock %}
+
+  {% block script %}
+  {% endblock %}
+
+  {% block service%}
+  {% endblock %}
+
+  {% block contact%}
+  {% endblock %}
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'assets/js/classie.js'%}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'assets/js/smoothscroll.js'%}"></script>
+	<script src="{% static 'assets/js/jquery.stellar.min.js'%}"></script>
+	<script src="{% static 'assets/js/fancybox/jquery.fancybox.js'%}"></script>
+	<script src="{% static 'assets/js/main.js'%}"></script>
+		<script>
+		$(function(){
+			$.stellar({
+				horizontalScrolling: false,
+				verticalOffset: 40
+			});
+		});
+		</script>
+		
+		<script type="text/javascript">
+      $(function() {
+        //    fancybox
+          jQuery(".fancybox").fancybox();
+      });
+	   </script>
+</body>
+</html>

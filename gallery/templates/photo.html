@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% load staticfiles %}
+
+{% block head %}
+	<link rel="stylesheet" href="{% static 'css/blueimp-gallery.min.css'%}">
+    <title>{{ album.title }}</title>
+{% endblock %}
+
+{% block photo %}
+<! -- PORTFOLIO SECTION -->
+<section id="portfolio" name="portfolio"></section>
+<div id="portfoliowrap">
+	<div class="container">
+		<div class="row centered">
+			<h1>{{ photo.Album }}</h1>
+			<div id="links">
+				{% for photo in photos.photo_set.all %}
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+					<div  class="project-wrapper">
+						<div class="project">
+							<div class="photo-wrapper">
+								<div class="photo">
+									{% thumbnail photo.img "400x270" crop='center' as im %}
+										<a href="{{ MEDIA_URL }}{{ photo.img }}">
+											<img src='{{ im.url }}' alt="{{ photo.title }}" width="{{ im.width }}" height="{{ im.height }} " title="{{ photo.title }}">
+										</a>
+									{% endthumbnail %}
+								</div><!--/photo-->
+								<div class="overlay"></div>
+								<p><h2 style="color: tan"  title="{{ photo.title }}">{{ photo.title }}</h2></p>
+							</div><!--/photo-wrapper-->
+						</div><!--/project-->
+					</div><!--/project-wrapper-->
+				</div><!-- col-lg-4 -->
+				{% endfor %}
+			</div><!--/links -->
+		</div><!--/row -->
+	</div><!--/container -->
+</div><!--/portfoliowrap -->
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery" data-start-slideshow="false" data-filter=":even">
+	<div class="slides"></div>
+	<h3 class="title"></h3>
+	<a class="prev">‹</a>
+	<a class="next">›</a>
+	<a class="close">×</a>
+	<a class="play-pause"></a>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
+<script src="{% static 'js/blueimp-gallery.min.js'%}"></script>
+{% endblock %}

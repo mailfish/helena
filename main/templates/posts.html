@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    <title>Последние события</title>
+{% endblock %}
+
+{% block post %}
+    {% for post in posts %}
+            <h4>Дата публикации: {{ post.post_date }}</h4>
+            <h4><a href="posts/{{ post.id }}/">{{ post.post_title }}</a></h4>
+            <p>{{ post.post_text }}</p>
+            <p><a href="posts/{{ post.id }}/addlike/">
+                <img class="img_likes" src="{% static "like.jpg" %}"
+                width="50px" height="50px">{{ post.post_likes }}</a></p>
+        <hr>
+    {% endfor %}
+{% endblock %}
